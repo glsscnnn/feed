@@ -1,0 +1,20 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Post Something</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Post Something:</h1>
+        <hr/>
+        <form action="{% url 'feed:posts' posts.name %}" method="post">
+            {% csrf_token %}
+            <label for="author">Your name: </label>
+            <input type="text" name="author" value="{{ post.author }}">
+            <input type="submit" value="Posts">
+        </form>
+    </body>
+</html>
