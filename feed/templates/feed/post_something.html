@@ -3,7 +3,7 @@
         <h1>Post Something</h1>
         <form method="post">
             {% csrf_token %}
-            {{ form }}
+            {{ form.as_ul }}
             <input type="submit" value="OK">
         </form>
     </body>

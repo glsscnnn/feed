@@ -1,10 +1,8 @@
-from django import forms
-from .models import Name
+from django.forms import ModelForm
+from .models import Posts
 
-class NameForm(forms.Form):
-    your_name = forms.CharField(max_length=30)
-
+class NameForm(ModelForm):
     # association
     class Meta:
-        fields = ('usern')
-        model = Name
+        model = Posts
+        fields = ['title', 'author', 'content']

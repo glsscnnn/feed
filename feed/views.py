@@ -11,8 +11,8 @@ def post_something(request):
     if request.method == "POST":
         form = NameForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['usern']
-
+            values = form.save(commit=False)
+            values.save()
             return HttpResponseRedirect('/feed/')
 
     else:
