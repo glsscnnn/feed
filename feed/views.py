@@ -5,7 +5,7 @@ from .forms import NameForm
 
 # Create your views here.
 def index(request):
-    return render(request, "feed/index.html", {'posts': Posts.objects.all()[:5]})
+    return render(request, "feed/index.html", {'posts': reversed(Posts.objects.order_by('-date'))})
 
 def post_something(request):
     if request.method == "POST":
@@ -13,7 +13,7 @@ def post_something(request):
         if form.is_valid():
             values = form.save(commit=False)
             values.save()
-            return HttpResponseRedirect('/feed/')
+            return HttpResponseRedirect('/')
 
     else:
         form = NameForm()
